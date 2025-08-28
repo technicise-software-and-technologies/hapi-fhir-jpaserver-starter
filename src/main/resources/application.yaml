@@ -2,7 +2,7 @@
 server:
   #  servlet:
   #    context-path: /example/path
-  port: 8080
+  port: 8090
   tomcat:
     # allow | as a separator in the URL
     relaxed-query-chars: "|"
@@ -42,13 +42,19 @@ spring:
     enabled: false
     baselineOnMigrate: true
     fail-on-missing-locations: false
+  # datasource:
+  #   #url: 'jdbc:h2:file:./target/database/h2'
+  #   url: jdbc:h2:mem:test_mem
+  #   username: sa
+  #   password: null
+  #   driverClassName: org.h2.Driver
+  #   max-active: 15
   datasource:
-    #url: 'jdbc:h2:file:./target/database/h2'
-    url: jdbc:h2:mem:test_mem
-    username: sa
-    password: null
-    driverClassName: org.h2.Driver
-    max-active: 15
+    url: jdbc:postgresql://localhost:5432/without_auth_fhir_db
+    username: technicise
+    password: technicise2018
+    driverClassName: org.postgresql.Driver
+
 
     # database connection pool size
     hikari:
