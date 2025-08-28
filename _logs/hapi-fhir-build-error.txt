@@ -1,0 +1,638 @@
+        at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+        at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.StandardService.startInternal(StandardService.java:412)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.startup.Tomcat.start(Tomcat.java:438)
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128)
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107)
+        at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:520)
+        at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:222)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:619)    
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+        at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1364)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1353)
+        at ca.uhn.fhir.jpa.starter.Application.main(Application.java:46)
+Caused by: org.postgresql.util.PSQLException: ERROR: permission denied for schema public
+        at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
+        at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420)
+        at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+        at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517)
+        at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434)
+        at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:356)
+        at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:341)
+        at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:317)
+        at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:312)
+        at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+        at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+        at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)  
+        ... 116 common frames omitted
+
+2025-08-28T13:12:42.974+05:30  WARN 15408 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create sequence seq_valueset_pid start with 1 increment by 50" via JDBC [ERROR: permission denied for schema public]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create sequence seq_valueset_pid start with 1 increment by 50" via JDBC [ERROR: permission denied for schema public]
+        at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)  
+        at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576)      
+        at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516)     
+        at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySequence(AbstractSchemaMigrator.java:299)       
+        at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:254)    
+        at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112)
+        at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+        at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+        at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+        at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+        at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+        at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)  
+        at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+        at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+        at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:142)
+        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) 
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:225)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1323)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1284)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1252)
+        at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findDefaultEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:593)
+        at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.findEntityManagerFactory(PersistenceAnnotationBeanPostProcessor.java:557)
+        at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.resolveEntityManager(PersistenceAnnotationBeanPostProcessor.java:724)
+        at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.getResourceToInject(PersistenceAnnotationBeanPostProcessor.java:697)
+        at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:270)
+        at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+        at org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor.postProcessProperties(PersistenceAnnotationBeanPostProcessor.java:385)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) 
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+        at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)  
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+        at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+        at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) 
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+        at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)  
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+        at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+        at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) 
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+        at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:211)
+        at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:202)
+        at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:97)
+        at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245)
+        at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+        at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4464)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+        at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+        at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+        at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+        at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:772)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+        at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+        at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+        at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+        at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.StandardService.startInternal(StandardService.java:412)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.startup.Tomcat.start(Tomcat.java:438)
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128)
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107)
+        at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:520)
+        at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:222)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:619)    
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+        at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1364)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1353)
+        at ca.uhn.fhir.jpa.starter.Application.main(Application.java:46)
+Caused by: org.postgresql.util.PSQLException: ERROR: permission denied for schema public
+        at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
+        at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420)
+        at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+        at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517)
+        at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434)
+        at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:356)
+        at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:341)
+        at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:317)
+        at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:312)
+        at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+        at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+        at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)  
+        ... 116 common frames omitted
+
+2025-08-28T13:12:42.978+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:42.978+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "bt2_work_chunk" does not exist, skipping
+2025-08-28T13:12:42.979+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:42.980+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_blk_export_colfile" does not exist, skipping
+2025-08-28T13:12:42.980+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:42.981+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_blk_export_collection" does not exist, skipping
+2025-08-28T13:12:42.981+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:42.982+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_blk_import_jobfile" does not exist, skipping
+2025-08-28T13:12:42.982+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:42.983+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_history_tag" does not exist, skipping
+2025-08-28T13:12:42.983+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:42.983+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_idx_cmb_tok_nu" does not exist, skipping
+2025-08-28T13:12:42.984+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:42.984+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_idx_cmp_string_uniq" does not exist, skipping
+2025-08-28T13:12:42.985+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:42.986+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_res_link" does not exist, skipping
+2025-08-28T13:12:43.010+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.012+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_res_link" does not exist, skipping
+2025-08-28T13:12:43.013+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.038+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_res_param_present" does not exist, skipping
+2025-08-28T13:12:43.049+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.050+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_res_tag" does not exist, skipping
+2025-08-28T13:12:43.052+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.053+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_res_ver" does not exist, skipping
+2025-08-28T13:12:43.054+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.054+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_res_ver_prov" does not exist, skipping
+2025-08-28T13:12:43.055+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.056+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_search_include" does not exist, skipping
+2025-08-28T13:12:43.056+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.056+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_spidx_coords" does not exist, skipping
+2025-08-28T13:12:43.059+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.060+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_spidx_date" does not exist, skipping
+2025-08-28T13:12:43.062+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.062+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_spidx_number" does not exist, skipping
+2025-08-28T13:12:43.063+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.063+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_spidx_quantity" does not exist, skipping
+2025-08-28T13:12:43.063+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.063+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_spidx_quantity_nrml" does not exist, skipping
+2025-08-28T13:12:43.064+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.077+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_spidx_string" does not exist, skipping
+2025-08-28T13:12:43.079+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.080+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_spidx_token" does not exist, skipping
+2025-08-28T13:12:43.080+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.081+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "hfj_spidx_uri" does not exist, skipping
+2025-08-28T13:12:43.081+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.081+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "mpi_link" does not exist, skipping
+2025-08-28T13:12:43.082+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.082+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "mpi_link" does not exist, skipping
+2025-08-28T13:12:43.082+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.082+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "mpi_link" does not exist, skipping
+2025-08-28T13:12:43.083+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.083+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "mpi_link_aud" does not exist, skipping
+2025-08-28T13:12:43.084+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.084+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "npm_package_ver" does not exist, skipping
+2025-08-28T13:12:43.084+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.086+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "npm_package_ver" does not exist, skipping
+2025-08-28T13:12:43.088+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.088+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "npm_package_ver_res" does not exist, skipping
+2025-08-28T13:12:43.089+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.090+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "npm_package_ver_res" does not exist, skipping
+2025-08-28T13:12:43.091+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.091+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_codesystem" does not exist, skipping
+2025-08-28T13:12:43.092+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.093+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_codesystem" does not exist, skipping
+2025-08-28T13:12:43.094+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.094+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_codesystem_ver" does not exist, skipping
+2025-08-28T13:12:43.094+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.094+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_codesystem_ver" does not exist, skipping
+2025-08-28T13:12:43.094+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.094+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept" does not exist, skipping
+2025-08-28T13:12:43.095+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.095+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_desig" does not exist, skipping
+2025-08-28T13:12:43.096+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.096+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_desig" does not exist, skipping
+2025-08-28T13:12:43.096+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.096+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_map" does not exist, skipping
+2025-08-28T13:12:43.096+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.096+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_map_group" does not exist, skipping
+2025-08-28T13:12:43.098+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.098+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_map_grp_element" does not exist, skipping
+2025-08-28T13:12:43.099+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.099+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_map_grp_elm_tgt" does not exist, skipping
+2025-08-28T13:12:43.100+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.100+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_pc_link" does not exist, skipping
+2025-08-28T13:12:43.100+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.100+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_pc_link" does not exist, skipping
+2025-08-28T13:12:43.101+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.101+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_pc_link" does not exist, skipping
+2025-08-28T13:12:43.101+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.102+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_property" does not exist, skipping
+2025-08-28T13:12:43.102+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.103+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_concept_property" does not exist, skipping
+2025-08-28T13:12:43.103+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.103+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_valueset" does not exist, skipping
+2025-08-28T13:12:43.103+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.103+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_valueset_c_designation" does not exist, skipping
+2025-08-28T13:12:43.104+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.104+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_valueset_c_designation" does not exist, skipping
+2025-08-28T13:12:43.105+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2025-08-28T13:12:43.105+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "trm_valueset_concept" does not exist, skipping
+2025-08-28T13:12:43.112+05:30  INFO 15408 --- [           main] irLocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'HAPI_PU'
+2025-08-28T13:12:44.021+05:30  INFO 15408 --- [           main] .u.f.c.s.DefaultProfileValidationSupport : Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-resources.xml
+2025-08-28T13:12:44.037+05:30  INFO 15408 --- [           main] ca.uhn.fhir.util.XmlUtil                 : FHIR XML procesing will use StAX implementation 'Woodstox' version '6.4.0'
+2025-08-28T13:12:45.304+05:30  INFO 15408 --- [           main] .u.f.c.s.DefaultProfileValidationSupport : Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-types.xml
+2025-08-28T13:12:45.393+05:30  INFO 15408 --- [           main] .u.f.c.s.DefaultProfileValidationSupport : Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-others.xml
+2025-08-28T13:12:45.679+05:30  INFO 15408 --- [           main] .u.f.c.s.DefaultProfileValidationSupport : Loading structure definitions from classpath: /org/hl7/fhir/r4/model/extension/extension-definitions.xml
+2025-08-28T13:12:46.442+05:30  INFO 15408 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-28T13:12:49.610+05:30  INFO 15408 --- [           main] c.u.f.j.sched.BaseSchedulerServiceImpl   : Creating Local Scheduler
+2025-08-28T13:12:49.659+05:30  INFO 15408 --- [           main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2025-08-28T13:12:49.673+05:30  INFO 15408 --- [           main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-08-28T13:12:49.673+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2025-08-28T13:12:49.674+05:30  INFO 15408 --- [           main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2025-08-28T13:12:49.675+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'hapi-fhir-jpa-scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 4 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-08-28T13:12:49.675+05:30  INFO 15408 --- [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'hapi-fhir-jpa-scheduler' initialized from an externally provided properties instance.
+2025-08-28T13:12:49.675+05:30  INFO 15408 --- [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2025-08-28T13:12:49.675+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : JobFactory set to: ca.uhn.fhir.jpa.sched.AutowiringSpringBeanJobFactory@73f93fb4
+2025-08-28T13:12:49.676+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler hapi-fhir-jpa-scheduler_$_NON_CLUSTERED paused.
+2025-08-28T13:12:49.676+05:30  INFO 15408 --- [           main] c.u.f.j.sched.BaseSchedulerServiceImpl   : Creating Clustered Scheduler
+2025-08-28T13:12:49.676+05:30  INFO 15408 --- [           main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2025-08-28T13:12:49.678+05:30  INFO 15408 --- [           main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2025-08-28T13:12:49.678+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2025-08-28T13:12:49.678+05:30  INFO 15408 --- [           main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2025-08-28T13:12:49.678+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'hapi-fhir-jpa-scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 4 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2025-08-28T13:12:49.678+05:30  INFO 15408 --- [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'hapi-fhir-jpa-scheduler' initialized from an externally provided properties instance.
+2025-08-28T13:12:49.678+05:30  INFO 15408 --- [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2025-08-28T13:12:49.678+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : JobFactory set to: ca.uhn.fhir.jpa.sched.AutowiringSpringBeanJobFactory@73f93fb4
+2025-08-28T13:12:49.678+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler hapi-fhir-jpa-scheduler_$_NON_CLUSTERED paused.
+2025-08-28T13:12:50.107+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Performing initial retrieval for non-expiring cache: org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a
+2025-08-28T13:12:50.107+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Initial retrieval for non-expiring cache org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a succeeded in 1ms
+2025-08-28T13:12:50.112+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Performing initial retrieval for non-expiring cache: org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a
+2025-08-28T13:12:50.113+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Initial retrieval for non-expiring cache org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a succeeded in 1ms
+2025-08-28T13:12:50.113+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Performing initial retrieval for non-expiring cache: org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a
+2025-08-28T13:12:50.114+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Initial retrieval for non-expiring cache org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a succeeded in 1ms
+2025-08-28T13:12:50.114+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Performing initial retrieval for non-expiring cache: org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a
+2025-08-28T13:12:50.115+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Initial retrieval for non-expiring cache org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a succeeded in 1ms
+2025-08-28T13:12:50.115+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Performing initial retrieval for non-expiring cache: org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a
+2025-08-28T13:12:50.116+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Initial retrieval for non-expiring cache org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a succeeded in 1ms
+2025-08-28T13:12:50.116+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Performing initial retrieval for non-expiring cache: org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a
+2025-08-28T13:12:50.118+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Initial retrieval for non-expiring cache org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a succeeded in 2ms
+2025-08-28T13:12:50.187+05:30  INFO 15408 --- [           main] ca.uhn.fhir.context.FhirContext          : Creating new FHIR context for FHIR version [R4]
+2025-08-28T13:12:50.419+05:30  INFO 15408 --- [           main] c.u.f.j.starter.common.StarterJpaConfig  : CORS is enabled on this server
+2025-08-28T13:12:50.420+05:30  INFO 15408 --- [           main] c.u.f.j.starter.common.StarterJpaConfig  : CORS allows the following origins: *
+2025-08-28T13:12:50.451+05:30  INFO 15408 --- [           main] ca.uhn.fhir.context.FhirContext          : Creating new FHIR context for FHIR version [R5]
+2025-08-28T13:12:50.756+05:30  WARN 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
+2025-08-28T13:12:50.756+05:30 ERROR 15408 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation "hfj_spidx_identity" does not exist
+  Position: 58
+2025-08-28T13:12:50.900+05:30 ERROR 15408 --- [           main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'hapiServletRegistration' defined in ca.uhn.fhir.jpa.starter.Application: Unsatisfied dependency expressed through method 'hapiServletRegistration' parameter 0: Error creating bean with name 'restfulServer' defined in class path resource [ca/uhn/fhir/jpa/starter/common/StarterJpaConfig.class]: Failed to instantiate [ca.uhn.fhir.rest.server.RestfulServer]: Factory method 'restfulServer' threw exception with message: Error creating bean with name 'myAccountDaoR4': Unsatisfied dependency expressed through field 'myDaoSearchParamSynchronizer': Error creating bean with name 'daoSearchParamSynchronizer': Unsatisfied dependency expressed through field 'mySearchParamIdentityCacheSvc': Error creating bean with name 'searchParamIdentityCacheSvc': Invocation of init method failed
+2025-08-28T13:12:50.932+05:30  INFO 15408 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-28T13:12:50.937+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)  
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)   
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-08-28T13:12:50.938+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler-local-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:568)
+2025-08-28T13:12:50.938+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler-local-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:568)
+2025-08-28T13:12:50.938+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler-local-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:568)
+2025-08-28T13:12:50.939+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler-local-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:568)
+2025-08-28T13:12:50.939+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler_QuartzSchedulerThread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:254)
+2025-08-28T13:12:50.939+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler-clustered-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:568)
+2025-08-28T13:12:50.940+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler-clustered-2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:568)
+2025-08-28T13:12:50.940+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler-clustered-3] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:568)
+2025-08-28T13:12:50.940+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler-clustered-4] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:568)
+2025-08-28T13:12:50.941+05:30  WARN 15408 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [hapi-fhir-jpa-scheduler_QuartzSchedulerThread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ org.quartz.core.QuartzSchedulerThread.run(QuartzSchedulerThread.java:254)
+2025-08-28T13:12:50.942+05:30  WARN 15408 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2025-08-28T13:12:50.943+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Performing initial retrieval for non-expiring cache: org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a
+2025-08-28T13:12:50.944+05:30  INFO 15408 --- [           main] c.u.f.log.terminology_troubleshooting    : Initial retrieval for non-expiring cache org.hl7.fhir.common.hapi.validation.support.ValidationSupportChain$FetchAllKey@5c74dc3a succeeded in 1ms
+2025-08-28T13:12:50.945+05:30  INFO 15408 --- [           main] c.u.f.j.sched.BaseSchedulerServiceImpl   : Shutting down task scheduler...
+2025-08-28T13:12:50.945+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler hapi-fhir-jpa-scheduler_$_NON_CLUSTERED shutting down.
+2025-08-28T13:12:50.945+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler hapi-fhir-jpa-scheduler_$_NON_CLUSTERED paused.
+2025-08-28T13:12:51.197+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler hapi-fhir-jpa-scheduler_$_NON_CLUSTERED shutdown complete.
+2025-08-28T13:12:51.197+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler hapi-fhir-jpa-scheduler_$_NON_CLUSTERED shutting down.
+2025-08-28T13:12:51.197+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler hapi-fhir-jpa-scheduler_$_NON_CLUSTERED paused.
+2025-08-28T13:12:51.711+05:30  INFO 15408 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler hapi-fhir-jpa-scheduler_$_NON_CLUSTERED shutdown complete.
+2025-08-28T13:12:51.716+05:30  INFO 15408 --- [           main] irLocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'HAPI_PU'
+2025-08-28T13:12:51.718+05:30  INFO 15408 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-28T13:12:51.723+05:30  INFO 15408 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-28T13:12:51.739+05:30  INFO 15408 --- [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-28T13:12:51.767+05:30 ERROR 15408 --- [           main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:170)
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:619)    
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+        at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1364)
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1353)
+        at ca.uhn.fhir.jpa.starter.Application.main(Application.java:46)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:147)
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107)
+        at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:520)
+        at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:222)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167)
+        ... 8 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'hapiServletRegistration' defined in ca.uhn.fhir.jpa.starter.Application: Unsatisfied dependency expressed through method 'hapiServletRegistration' parameter 0: Error creating bean with name 'restfulServer' defined in class path resource [ca/uhn/fhir/jpa/starter/common/StarterJpaConfig.class]: Failed to instantiate [ca.uhn.fhir.rest.server.RestfulServer]: Factory method 'restfulServer' threw exception with message: Error creating bean with name 'myAccountDaoR4': Unsatisfied dependency expressed through field 'myDaoSearchParamSynchronizer': Error creating bean with name 'daoSearchParamSynchronizer': Unsatisfied dependency expressed through field 'mySearchParamIdentityCacheSvc': Error creating bean with name 'searchParamIdentityCacheSvc': Invocation of init method failed
+        at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) 
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+        at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:211)
+        at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:202)
+        at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:97)
+        at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271)
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245)
+        at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+        at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4464)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+        at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+        at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+        at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+        at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:772)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+        at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+        at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+        at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+        at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+        at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.StandardService.startInternal(StandardService.java:412)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870)
+        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+        at org.apache.catalina.startup.Tomcat.start(Tomcat.java:438)
+        at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128)
+        ... 13 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'restfulServer' defined in class path resource [ca/uhn/fhir/jpa/starter/common/StarterJpaConfig.class]: Failed to instantiate [ca.uhn.fhir.rest.server.RestfulServer]: Factory method 'restfulServer' threw exception with message: Error creating bean with name 'myAccountDaoR4': Unsatisfied dependency expressed through field 'myDaoSearchParamSynchronizer': Error creating bean with name 'daoSearchParamSynchronizer': Unsatisfied dependency expressed through field 'mySearchParamIdentityCacheSvc': Error creating bean with name 'searchParamIdentityCacheSvc': Invocation of init method failed
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)        
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) 
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+        at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)  
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+        at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+        at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+        ... 53 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [ca.uhn.fhir.rest.server.RestfulServer]: Factory method 'restfulServer' threw exception with message: Error creating bean with name 'myAccountDaoR4': Unsatisfied dependency expressed through field 'myDaoSearchParamSynchronizer': Error creating bean with name 'daoSearchParamSynchronizer': Unsatisfied dependency expressed through field 'mySearchParamIdentityCacheSvc': Error creating bean with name 'searchParamIdentityCacheSvc': Invocation of init method failed
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:178)
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)        
+        ... 67 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'myAccountDaoR4': Unsatisfied dependency expressed through field 'myDaoSearchParamSynchronizer': Error creating bean with name 'daoSearchParamSynchronizer': Unsatisfied dependency expressed through field 'mySearchParamIdentityCacheSvc': Error creating bean with name 'searchParamIdentityCacheSvc': Invocation of init method failed
+        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+        at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) 
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:665)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:653)
+        at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1389)
+        at ca.uhn.fhir.jpa.api.dao.DaoRegistry.init(DaoRegistry.java:166)
+        at ca.uhn.fhir.jpa.api.dao.DaoRegistry.getResourceDaoOrNull(DaoRegistry.java:149)
+        at ca.uhn.fhir.jpa.api.dao.DaoRegistry.isResourceTypeSupported(DaoRegistry.java:156)
+        at ca.uhn.fhir.jpa.provider.DaoRegistryResourceSupportedSvc.isSupported(DaoRegistryResourceSupportedSvc.java:34)  
+        at ca.uhn.fhir.jpa.config.GeneratedDaoAndResourceProviderConfigR4.lambda$resourceProvidersR4$0(GeneratedDaoAndResourceProviderConfigR4.java:36)
+        at ca.uhn.fhir.rest.server.provider.ObservableSupplierSet.getSupplierResults(ObservableSupplierSet.java:116)      
+        at ca.uhn.fhir.rest.server.provider.ResourceProviderFactory.createProviders(ResourceProviderFactory.java:32)      
+        at ca.uhn.fhir.jpa.starter.common.StarterJpaConfig.restfulServer(StarterJpaConfig.java:314)
+        at ca.uhn.fhir.jpa.starter.common.StarterJpaConfig$$SpringCGLIB$$0.CGLIB$restfulServer$0(<generated>)
+        at ca.uhn.fhir.jpa.starter.common.StarterJpaConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+        at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+        at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:348)
+        at ca.uhn.fhir.jpa.starter.common.StarterJpaConfig$$SpringCGLIB$$0.restfulServer(<generated>)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146)
+        ... 68 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'daoSearchParamSynchronizer': Unsatisfied dependency expressed through field 'mySearchParamIdentityCacheSvc': Error creating bean with name 'searchParamIdentityCacheSvc': Invocation of init method failed
+        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+        at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) 
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+        at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)  
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+        ... 97 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'searchParamIdentityCacheSvc': Invocation of init method failed
+        at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:222)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:422)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1798)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) 
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+        at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)  
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+        ... 111 common frames omitted
+Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select ispi1_0.hash_identity,ispi1_0.sp_identity_id from hfj_spidx_identity ispi1_0] [ERROR: relation "hfj_spidx_identity" does not exist 
+  Position: 58] [n/a]; SQL [n/a]
+        at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277)
+        at ca.uhn.fhir.jpa.config.HapiFhirHibernateJpaDialect.convertHibernateAccessException(HapiFhirHibernateJpaDialect.java:139)
+        at ca.uhn.fhir.jpa.config.HapiFhirHibernateJpaDialect.convertHibernateAccessException(HapiFhirHibernateJpaDialect.java:70)
+        at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+        at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+        at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:335)
+        at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)      
+        at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)      
+        at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)    
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)      
+        at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+        at jdk.proxy2/jdk.proxy2.$Proxy301.getAllHashIdentities(Unknown Source)
+        at ca.uhn.fhir.jpa.sp.SearchParamIdentityCacheSvcImpl.lambda$initCache$0(SearchParamIdentityCacheSvcImpl.java:110)
+        at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+        at ca.uhn.fhir.jpa.sp.SearchParamIdentityCacheSvcImpl.initCache(SearchParamIdentityCacheSvcImpl.java:110)
+        at ca.uhn.fhir.jpa.sp.SearchParamIdentityCacheSvcImpl.start(SearchParamIdentityCacheSvcImpl.java:96)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+        at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401)
+        at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219)
+        ... 123 common frames omitted
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select ispi1_0.hash_identity,ispi1_0.sp_identity_id from hfj_spidx_identity ispi1_0] [ERROR: relation "hfj_spidx_identity" does not exist
+  Position: 58] [n/a]
+        at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)        
+        at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)  
+        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+        at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:268) 
+        at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:171) 
+        at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.<init>(JdbcValuesResultSetImpl.java:74)        
+        at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:355)
+        at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137)
+        at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102)
+        at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91)
+        at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165)
+        at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$1(ConcreteSqmSelectQueryPlan.java:152)  
+        at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:442)
+        at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:362)   
+        at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:380)
+        at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143)
+        at org.hibernate.query.Query.getResultList(Query.java:120)
+        at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:129)
+        at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:92)
+        at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+        at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+        at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+        at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+        at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169)
+        at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)      
+        at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)      
+        at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+        at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)     
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)      
+        at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+        ... 139 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "hfj_spidx_identity" does not exist
+  Position: 58
+        at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733)
+        at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420)
+        at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+        at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517)
+        at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434)
+        at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:194)
+        at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:137)
+        at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+        at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+        at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:250) 
+        ... 167 common frames omitted
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  24.769 s
+[INFO] Finished at: 2025-08-28T13:12:51+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.3.11:run (default-cli) on project hapi-fhir-jpaserver-starter: Process terminated with exit code: 1 -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+PS C:\Users\Technicise Laptop 2\source\repos\sayan801\hapi-fhir-jpaserver-starter>
